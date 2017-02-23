@@ -6,6 +6,7 @@ function draw(){
   drawLives();
   drawPaddle();
   collisionDetection();
+
   if(x+ dx >canvas.width - ballRadius || x + dx < ballRadius){
     dx = -dx;
   }
@@ -40,19 +41,17 @@ function draw(){
   }
   x += dx;
   y += dy;
-
   requestAnimationFrame(draw);
-
 }
 function drawScore(){
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#0095DD";
-  ctx.fillText("Score" + score, 8 , 20);
+  ctx.font = "17px Arial";
+  ctx.fillStyle = "#ff0d00";
+  ctx.fillText("Score: " + score, 8 , 20);
   ctx.closePath();
 }
 function drawLives(){
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#0095DD";
-  ctx.fillText("Lives" + lives, canvas.width - 65 , 20);
+  ctx.font = "17px Arial";
+  ctx.fillStyle = "#ff0d00";
+  ctx.fillText("Lives: " + lives, canvas.width - 65 , 20);
 }
 draw();
