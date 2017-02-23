@@ -10,32 +10,40 @@ var rename = require('gulp-rename');
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('js/*.js')
+    return gulp.src('resources/assets/scripts/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass
 gulp.task('sass', function() {
-    return gulp.src('scss/*.scss')
+    return gulp.src('resources/assets/styles/*.scss')
         .pipe(sass())
-        .pipe(gulp.dest('dist/css'));
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest('public/css/'));
 });
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
+    return gulp.src(['resources/assets/scripts/*.js',
+    'resources/assets/scripts/models/*.js',
+    'resources/assets/scripts/controllers/*.js',
+    'resources/assets/scripts/views/*.js'])
         .pipe(concat('all.js'))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('public'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('public/js'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['lint', 'scripts']);
-    gulp.watch('scss/*.scss', ['sass']);
+  gulp.watch('resources/assets/scripts/*.js', ['lint', 'scripts']);
+  gulp.watch('resources/assets/scripts/models/*.js', ['lint', 'scripts']);
+  gulp.watch('resources/assets/scripts/controllers/*.js', ['lint', 'scripts']);
+  gulp.watch('resources/assets/scripts/views/*.js', ['lint', 'scripts']);
+
+    gulp.watch('resources/assets/styles/*.scss', ['sass']);
 });
 
 // Default Task
