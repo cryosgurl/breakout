@@ -5,7 +5,6 @@ function draw(){
   drawScore();
   drawLives();
   drawPaddle();
-  requestAnimationFrame(draw);
   if(x+ dx >canvas.width - ballRadius || x + dx < ballRadius){
     dx = -dx;
   }
