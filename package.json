@@ -1,0 +1,29 @@
+{
+  "name": "breakout",
+  "version": "1.0.0",
+  "description": "Mandy's personal sprint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryosgurl/breakout.git"
+  },
+  "author": "Mandy van zetten",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cryosgurl/breakout/issues"
+  },
+  "homepage": "https://github.com/cryosgurl/breakout#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.1",
+    "gulp-watch": "^4.3.11",
+    "jshint": "^2.9.4"
+  }
+}
