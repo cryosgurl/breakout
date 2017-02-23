@@ -5,6 +5,7 @@ function draw(){
   drawScore();
   drawLives();
   drawPaddle();
+  collisionDetection();
   if(x+ dx >canvas.width - ballRadius || x + dx < ballRadius){
     dx = -dx;
   }
@@ -14,7 +15,8 @@ function draw(){
   //ball and paddle direction collision
   else if(y +dy > canvas.height - ballRadius){
     if (x>paddleX && x<paddleX + paddleWidth) {
-      dx = 8*((x-(paddleX +paddleWidth/2))/paddleWidth)
+      dx = 8*((x-(paddleX +paddleWidth/2))/paddleWidth);
+      dy = -dy;
     }
     else{
       lives--;
@@ -29,8 +31,7 @@ function draw(){
         dy = -6;
       }
     }
-  }
-
+}
   if(rightPressed && paddleX < canvas.width - paddleWidth/2){
     paddleX += 14;
   }
