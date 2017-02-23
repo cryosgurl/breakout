@@ -1,7 +1,7 @@
 function drawPaddle(){
   ctx.beginPath();
   ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-  ctx.fillStyle = "#0095DD";
+  ctx.fillStyle = "#009900";
   ctx.fill();
   ctx.closePath();
 }
