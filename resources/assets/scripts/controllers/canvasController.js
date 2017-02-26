@@ -5,7 +5,8 @@ function draw(){
   drawScore();
   drawLives();
   drawPaddle();
-  requestAnimationFrame(draw);
+  collisionDetection();
+
   if(x+ dx >canvas.width - ballRadius || x + dx < ballRadius){
     dx = -dx;
   }
@@ -15,7 +16,8 @@ function draw(){
   //ball and paddle direction collision
   else if(y +dy > canvas.height - ballRadius){
     if (x>paddleX && x<paddleX + paddleWidth) {
-      dx = 8*((x-(paddleX +paddleWidth/2))/paddleWidth)
+      dx = 8*((x-(paddleX +paddleWidth/2))/paddleWidth);
+      dy = -dy;
     }
     else{
       lives--;
@@ -30,8 +32,7 @@ function draw(){
         dy = -6;
       }
     }
-  }
-
+}
   if(rightPressed && paddleX < canvas.width - paddleWidth/2){
     paddleX += 14;
   }
@@ -40,19 +41,17 @@ function draw(){
   }
   x += dx;
   y += dy;
-
   requestAnimationFrame(draw);
-
 }
 function drawScore(){
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#0095DD";
-  ctx.fillText("Score" + score, 8 , 20);
+  ctx.font = "17px Arial";
+  ctx.fillStyle = "#ff0d00";
+  ctx.fillText("Score: " + score, 8 , 20);
   ctx.closePath();
 }
 function drawLives(){
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#0095DD";
-  ctx.fillText("Lives" + lives, canvas.width - 65 , 20);
+  ctx.font = "17px Arial";
+  ctx.fillStyle = "#ff0d00";
+  ctx.fillText("Lives: " + lives, canvas.width - 65 , 20);
 }
 draw();
