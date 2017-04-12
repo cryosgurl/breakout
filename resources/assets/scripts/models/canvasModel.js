@@ -14,7 +14,6 @@ function collisionDetection(){
       var b = bricks[c][r];
       if(b.status == 1){
         if(x>b.x && x<b.x+brickWidth && y>b.y && y<b.y+brickHeight){
-          console.log("h8i");
           dy = -dy;
           b.status = 0;
           score += 7;
