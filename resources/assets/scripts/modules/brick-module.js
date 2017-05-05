@@ -11,7 +11,7 @@ var brick = (function{}(
 
   var myObject = {}
 
-  var myObject.brickPos = (function(){
+  var myObject.brickPos = function(){
 
     for(var c = 0; c<brickColumnCount; c++){
       bricks[c] = [];
@@ -19,7 +19,7 @@ var brick = (function{}(
         bricks[c][r] = {x: 0, y: 0, status:1};
       }
     }
-  })();
+  };
 
   var myObject.draw = function (){
     for(var c=0;c<brickColumnCount;c++){
